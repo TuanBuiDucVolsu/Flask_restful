@@ -1,0 +1,31 @@
+version: '3.9'
+networks:
+  traefik:
+    external: true
+  internal:
+
+# docker volumn create
+services:
+  tuanbd_restful:
+    container_name: tuanbd_restful
+    restart: always
+    build:
+      context: .
+      dockerfile: dockerfile
+    networks:
+      - "traefik"
+      - "internal"
+    volumes:
+      - .:/code
+    ports:
+      - 660:5000
+    environment:
+      - DB_NAME=tuanbdpgdb
+      - DB_USER=tuanbd
+      - DB_PASSWORD=eminem1999
+      - DB_HOST=tuanbd_pg_admin
+      - DB_PORT=542
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      - SECRET_KEY=CHSJsObu937IwQio
+      - SECRET_KEY_DEVICE=TuanbdDevice#1
