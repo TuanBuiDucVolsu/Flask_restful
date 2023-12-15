@@ -92,7 +92,7 @@ class ConnectModel:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
                 cur.execute(str(query))
                 if is_commit:
-                    conn.commit()
+                    conn.commit() # Thực hiện commit sau khi thực hiện truy vấn chèn
                 return True
         except Exception as e:
             conn.rollback()
@@ -106,7 +106,7 @@ class ConnectModel:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
                 cur.execute(str(query))
                 if is_commit:
-                    conn.commit()
+                    conn.commit()  # Thực hiện commit sau khi thực hiện truy vấn chèn
                 return cur.rowcount
         except Exception as e:
             conn.rollback()
