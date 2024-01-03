@@ -10,6 +10,11 @@ DB = {
     },
 }
 
+GENDER = {
+    'male': 'Trai',
+    'female': 'Girl'
+}
+
 # MESSAGE
 CODE_API = {
     'success': 1,
