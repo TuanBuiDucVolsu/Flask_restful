@@ -2,6 +2,7 @@ import redis, os, json
 from datetime import datetime
 from app.helpers.functions import get_datetime_now
 
+# Redis
 R = []
 for i in range(0,2):
     R.append(redis.Redis(host=os.environ.get('REDIS_HOST'), port=os.environ.get('REDIS_PORT'), db=i, decode_responses=True))
